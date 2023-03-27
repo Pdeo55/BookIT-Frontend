@@ -1,10 +1,12 @@
-import './App.css'
+import Footer from "./components/Footer"
+import Navbar from "./components/Navbar"
 
 function App() {
 
   return (
-    <div className="App">
-      <h1>Book-IT</h1>
+    <div className="w-full">
+      <Navbar/>
+      <Footer/>
     </div>
   )
 }
