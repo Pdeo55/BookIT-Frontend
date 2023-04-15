@@ -14,7 +14,7 @@ const Footer = () => {
         </div>
         <div className="my-5 w-[55%]">
           <p>
-            BOOK IT is a l self-service ticketing platform for live experiences
+            BOOK IT is a self-service ticketing platform for live experiences
             that allows anyone to create, share, find and attend events that
             fuel their passions and enrich their lives.
           </p>
