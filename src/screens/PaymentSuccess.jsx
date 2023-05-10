@@ -1,9 +1,46 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import moment from "moment";
+
+
 const PaymentSuccess = () => {
+
+
   const seachQuery = useSearchParams()[0];
 
   const referenceNum = seachQuery.get("reference");
+
+  console.log(referenceNum)
+
+  const {user} = useSelector((state) => state.auth)
+  const { events } = useSelector((state) => state.events);
+  console.log(events)
+ 
+  const date = moment(event?.Date).format("MMMM Do YYYY");
+  if(referenceNum){
+    const userDetails = {
+      id: user?._id,
+      name: user?.name,
+      email: user?.email
+    }
+
+    // const eventDetails = {
+    //   eventName: events?.EventName,
+    //   venue: events?.Venue,
+    //   date: date
+    // }
+
+    axios.post("http://localhost:8000/api/booking/paymentVerification", {userDetails})
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   return (
     <div className="bg-gray-100 h-screen">
       <div className="bg-white p-6  md:mx-auto">
@@ -20,13 +57,22 @@ const PaymentSuccess = () => {
           <p className="text-gray-600 my-2">
             Thank you for completing your secure online payment.
           </p>
-          <p> Have a great day! </p>
+          <p> Have a great day! {user?.name} </p>
           <div className="py-10 text-center">
             <p>Reference No.{referenceNum}</p>
           </div>
+          <p> Booking Details </p>
+          <div>
+            <ul>
+            <li><h5>Name: {user?.name}</h5></li>
+            {/* <li><h5>Event: {events?.EventName}</h5></li>
+            <li><h5>Venue: {events?.Venue}</h5></li> */}
+            <li><h5>Date:{date}</h5></li>
+            </ul>
+          </div>
           <div className="py-10 text-center">
             <a
-              href="#"
+              href="/"
               className="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3"
             >
               GO BACK

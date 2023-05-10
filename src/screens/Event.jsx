@@ -49,11 +49,6 @@ const Event = () => {
         email: user?.email,
         contact: user?.phoneNo,
       },
-      handler: function (response) {
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature);
-      },
       notes: {
         address: "Razorpay Corporate Office",
       },

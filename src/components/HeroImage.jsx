@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
-import heroImage from "../assets/HeroImage.png";
+import heroImage from "../assets/heroimage.png";
 
 import "react-calendar/dist/Calendar.css";
 
