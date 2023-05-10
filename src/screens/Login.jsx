@@ -6,8 +6,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { login, reset } from "../features/auth/authSlice";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 const Login = () => {
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -20,6 +22,7 @@ const Login = () => {
         .required("Required")
         .min(5, "Must be 5 chars or more"),
     }),
+    
     onSubmit: (values) => {
       const userData = {
         email: values.email,
@@ -40,7 +43,7 @@ const Login = () => {
 
   useEffect(() => {
     if (isError) {
-      console.log(message);
+      toast.error("Something went wrong")
     }
 
     if (isSuccess || user) {

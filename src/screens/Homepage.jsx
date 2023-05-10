@@ -12,6 +12,7 @@ const Homepage = () => {
   // const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth);
+  console.log(user)
 
   useEffect(() => {
     if (!user) {
@@ -24,7 +25,7 @@ const Homepage = () => {
       <Navbar />
       <HeroImage />
       <Categories />
-      {<CreateEvent />}
+      {user.role==="Organizer" && <CreateEvent />}
       <Footer />
     </>
   );
