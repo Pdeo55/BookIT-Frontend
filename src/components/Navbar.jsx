@@ -20,10 +20,11 @@ const Navbar = () => {
         <img src={logo} alt="bookit-logo" className="h-12 cursor-pointer" />
       </div>
       <div className="flex gap-20 py-2 pr-8">
-        <p className="text-white text-2xl cursor-pointer">Schedule</p>
-        <p className="text-white text-2xl cursor-pointer">Speakers</p>
-        <p className="text-white text-2xl cursor-pointer">Ticket</p>
-        <p className="text-white text-2xl cursor-pointer">Contact</p>
+        <Link to={"/add-event"}>
+          {user.role === "Organizer" && (
+            <p className="text-white text-2xl cursor-pointer">Add a Event</p>
+          )}
+        </Link>
         {user && (
           <Link to={"/login"}>
             <button
