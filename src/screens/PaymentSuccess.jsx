@@ -18,7 +18,7 @@ const PaymentSuccess = () => {
   const { events } = useSelector((state) => state.events);
   console.log(events)
  
-  const date = moment(event?.Date).format("MMMM Do YYYY");
+  const date = moment(events?.Date).format("MMMM Do YYYY");
   if(referenceNum){
     const userDetails = {
       id: user?._id,
